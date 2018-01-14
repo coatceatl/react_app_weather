@@ -5,10 +5,10 @@ import "./App.css";
 import { Navbar, NavItem, Nav, Grid, Row, Col } from "react-bootstrap";
 
 const PLACES = [
-  { name: "Palo Alto", zip: "94303" },
-  { name: "San Jose", zip: "94088" },
-  { name: "Santa Cruz", zip: "95062" },
-  { name: "Honolulu", zip: "96803" }
+  { name: "Haifa",     id: "294801" },
+  { name: "Jerusalem", id: "281184" },
+  { name: "Netanya",   id: "294071" },
+  { name: "Tel Aviv",  id: "293397" }
 ];
 
 class WeatherDisplay extends Component {
@@ -19,10 +19,10 @@ class WeatherDisplay extends Component {
     };
   }
   componentDidMount() {
-    const zip = this.props.zip;
-    const URL = "http://api.openweathermap.org/data/2.5/weather?q=" +
-      zip +
-      "&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=imperial";
+    const id = this.props.id;
+    const URL = "http://api.openweathermap.org/data/2.5/weather?id=" +
+      id +
+      "&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=metric";
     fetch(URL).then(res => res.json()).then(json => {
       this.setState({ weatherData: json });
     });
@@ -41,7 +41,7 @@ class WeatherDisplay extends Component {
         <p>Current: {weatherData.main.temp}°</p>
         <p>High: {weatherData.main.temp_max}°</p>
         <p>Low: {weatherData.main.temp_min}°</p>
-        <p>Wind Speed: {weatherData.wind.speed} mi/hr</p>
+        <p>Wind Speed: {weatherData.wind.speed} m/s</p>
       </div>
     );
   }
@@ -83,7 +83,7 @@ class App extends Component {
               </Nav>
             </Col>
             <Col md={8} sm={8}>
-              <WeatherDisplay key={activePlace} zip={PLACES[activePlace].zip} />
+              <WeatherDisplay key={activePlace} id={PLACES[activePlace].id} />
             </Col>
           </Row>
         </Grid>
