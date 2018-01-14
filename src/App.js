@@ -2,7 +2,14 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
-import { Navbar, NavItem, Nav, Grid, Row, Col } from "react-bootstrap";
+import {
+  Col,
+  Grid,
+  Nav,
+  NavItem,
+  Navbar,
+  Row,
+} from "react-bootstrap";
 
 const PLACES = [
   { name: "Haifa",     id: "294801" },
@@ -15,14 +22,12 @@ class WeatherDisplay extends Component {
   constructor() {
     super();
     this.state = {
-      weatherData: null
+      weatherData: null,
     };
   }
   componentDidMount() {
     const id = this.props.id;
-    const URL = "http://api.openweathermap.org/data/2.5/weather?id=" +
-      id +
-      "&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=metric";
+    const URL = `http://api.openweathermap.org/data/2.5/weather?id=${id}&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=metric`;
     fetch(URL).then(res => res.json()).then(json => {
       this.setState({ weatherData: json });
     });
@@ -31,7 +36,7 @@ class WeatherDisplay extends Component {
     const weatherData = this.state.weatherData;
     if (!weatherData) return <div>Loading</div>;
     const weather = weatherData.weather[0];
-    const iconUrl = "http://openweathermap.org/img/w/" + weather.icon + ".png";
+    const iconUrl = `http://openweathermap.org/img/w/${weather.icon}.png`;
     return (
       <div>
         <h1>
@@ -41,7 +46,9 @@ class WeatherDisplay extends Component {
         <p>Current: {weatherData.main.temp}°</p>
         <p>High: {weatherData.main.temp_max}°</p>
         <p>Low: {weatherData.main.temp_min}°</p>
-        <p>Wind Speed: {weatherData.wind.speed} m/s</p>
+        <p>Wind Speed: {weatherData.wind.speed} meter/sec</p>
+        <p>Clouds: {weatherData.clouds.all} %</p>
+        <p>Pressure: {weatherData.main.pressure} hPa</p>
       </div>
     );
   }
@@ -61,7 +68,7 @@ class App extends Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              React Simple Weather App
+              React Weather App
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>
