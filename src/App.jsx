@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import Header from './Header.jsx';
 import "./App.css";
 
+class App extends Component {
+  render() {
+    return(
+      <Header />
+    );
+  }
+}
+
+export default App
+/*
 import {
-  Button,
   Col,
-  FormGroup,
-  FormControl,
   Grid,
   Nav,
   NavItem,
@@ -30,7 +38,7 @@ class WeatherDisplay extends Component {
   }
   componentDidMount() {
     const id = this.props.id;
-    const URL = `http://api.openweathermap.org/data/2.5/weather?id=${id}&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=metric`;
+    //    const URL = `http://api.openweathermap.org/data/2.5/weather?id=${id}&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=metric`;
     fetch(URL).then(res => res.json()).then(json => {
       this.setState({ weatherData: json });
     });
@@ -39,12 +47,12 @@ class WeatherDisplay extends Component {
     const weatherData = this.state.weatherData;
     if (!weatherData) return <div>Loading</div>;
     const weather = weatherData.weather[0];
-    const iconUrl = `http://openweathermap.org/img/w/${weather.icon}.png`;
+    //    const iconUrl = `http://openweathermap.org/img/w/${weather.icon}.png`;
     return (
       <div>
         <h1>
           {weather.main} in {weatherData.name}
-          <img src={iconUrl} />
+          <img src={iconUrl} alt='icon' />
         </h1>
         <p>Current: {weatherData.main.temp}°</p>
         <p>High: {weatherData.main.temp_max}°</p>
@@ -74,8 +82,8 @@ class App extends Component {
               React Weather App
             </Navbar.Brand>
           </Navbar.Header>
-        </Navbar>
-        <Grid>
+          </Navbar>
+          <Grid>
           <Row>
             <Col md={4} sm={4}>
               <h3>Select a city</h3>
@@ -103,3 +111,5 @@ class App extends Component {
 }
 
 export default App;
+*/
+
