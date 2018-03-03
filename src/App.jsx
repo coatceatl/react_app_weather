@@ -1,22 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from './Header.jsx';
-import CurrentDay from './CurrentDay.jsx';
 import "./App.css";
 
-class App extends Component {
-  render() {
-    return(
-      <div>
-        <Header />
-        <CurrentDay />
-      </div>
-    );
-  }
-}
-
-export default App
-/*
 import {
   Col,
   Grid,
@@ -42,7 +28,7 @@ class WeatherDisplay extends Component {
   }
   componentDidMount() {
     const id = this.props.id;
-    //    const URL = `http://api.openweathermap.org/data/2.5/weather?id=${id}&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=metric`;
+      const URL = `http://api.openweathermap.org/data/2.5/weather?id=${id}&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=metric`;
     fetch(URL).then(res => res.json()).then(json => {
       this.setState({ weatherData: json });
     });
@@ -51,7 +37,7 @@ class WeatherDisplay extends Component {
     const weatherData = this.state.weatherData;
     if (!weatherData) return <div>Loading</div>;
     const weather = weatherData.weather[0];
-    //    const iconUrl = `http://openweathermap.org/img/w/${weather.icon}.png`;
+      const iconUrl = `http://openweathermap.org/img/w/${weather.icon}.png`;
     return (
       <div>
         <h1>
@@ -115,5 +101,5 @@ class App extends Component {
 }
 
 export default App;
-*/
+
 
