@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Header from './Header.jsx';
 import "./App.css";
 
 import {
@@ -64,6 +63,7 @@ class App extends Component {
   }
   render() {
     const activePlace = this.state.activePlace;
+
     return (
       <div>
         <Navbar>
