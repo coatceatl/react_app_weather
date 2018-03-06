@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-//import './Header.css';
 
 import {
   Navbar,
@@ -10,6 +9,11 @@ import {
 } from "react-bootstrap";
 
 class Header extends Component {
+  fetchData = (e) => {
+    e.preventDefault();
+    alert('fetch data!');
+  };
+
   render() {
     return (
       <div>
@@ -23,8 +27,8 @@ class Header extends Component {
             <Navbar.Form pullRight>
               <FormGroup>
                 <FormControl type="text" placeholder="Search" />
-              </FormGroup>{' '}
-              <Button type="submit">Submit</Button>
+              </FormGroup>
+              <Button onClick={this.fetchData} type="submit">Submit</Button>
             </Navbar.Form>
           </Navbar.Collapse>
           </Navbar>
