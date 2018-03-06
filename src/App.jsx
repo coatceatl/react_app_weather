@@ -9,6 +9,9 @@ import {
   NavItem,
   Navbar,
   Row,
+  FormGroup,
+  FormControl,
+  Button
 } from "react-bootstrap";
 
 const PLACES = [
@@ -72,6 +75,14 @@ class App extends Component {
               React Weather App
             </Navbar.Brand>
           </Navbar.Header>
+          <Navbar.Collapse>
+            <Navbar.Form pullRight>
+              <FormGroup>
+                <FormControl type="text" placeholder="Search" />
+              </FormGroup>{' '}
+              <Button type="submit">Submit</Button>
+            </Navbar.Form>
+          </Navbar.Collapse>
           </Navbar>
           <Grid>
           <Row>
