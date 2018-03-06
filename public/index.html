@@ -9,20 +9,19 @@
     <title>React Weather App</title>
     <style>
        #map {
-        height: 400px;
+        height: 500px;
         width: 100%;
        }
     </style>
   </head>
   <body>
     <div id="root"></div>
-    <h3>Google Maps</h3>
     <div id="map"></div>
     <script>
       function initMap() {
         var uluru = {lat: 32.321458, lng: 34.853196};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
+          zoom: 10,
           center: uluru
         });
         var marker = new google.maps.Marker({
