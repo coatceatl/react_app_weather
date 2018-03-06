@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import Header from './Header.jsx';
 import "./App.css";
 
 import {
@@ -7,11 +8,7 @@ import {
   Grid,
   Nav,
   NavItem,
-  Navbar,
   Row,
-  FormGroup,
-  FormControl,
-  Button
 } from "react-bootstrap";
 
 const PLACES = [
@@ -69,22 +66,8 @@ class App extends Component {
 
     return (
       <div>
-        <Navbar>
-          <Navbar.Header>
-            <Navbar.Brand>
-              React Weather App
-            </Navbar.Brand>
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Navbar.Form pullRight>
-              <FormGroup>
-                <FormControl type="text" placeholder="Search" />
-              </FormGroup>{' '}
-              <Button type="submit">Submit</Button>
-            </Navbar.Form>
-          </Navbar.Collapse>
-          </Navbar>
-          <Grid>
+        <Header />
+        <Grid>
           <Row>
             <Col md={4} sm={4}>
               <h3>Select a city</h3>

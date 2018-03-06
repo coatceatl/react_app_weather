@@ -12,6 +12,7 @@ import {
 class Header extends Component {
   render() {
     return (
+      <div>
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
@@ -19,14 +20,15 @@ class Header extends Component {
             </Navbar.Brand>
           </Navbar.Header>
           <Navbar.Collapse>
--            <Navbar.Form pullRight>
--              <FormGroup>
--                <FormControl type="text" placeholder="Search" />
--              </FormGroup>{' '}
--              <Button type="submit">Submit</Button>
--            </Navbar.Form>
--          </Navbar.Collapse>
-        </Navbar>
+            <Navbar.Form pullRight>
+              <FormGroup>
+                <FormControl type="text" placeholder="Search" />
+              </FormGroup>{' '}
+              <Button type="submit">Submit</Button>
+            </Navbar.Form>
+          </Navbar.Collapse>
+          </Navbar>
+      </div>
     );
   }
 }
