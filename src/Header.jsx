@@ -9,9 +9,19 @@ import {
 } from "react-bootstrap";
 
 class Header extends Component {
+  state = {
+    location: ''
+  };
+
   fetchData = (e) => {
     e.preventDefault();
-    alert('fetch data!');
+    alert('search', this.state.location);
+  };
+
+  changeLocation = (e) => {
+    this.setState({
+      location: e.target.value
+    });
   };
 
   render() {
@@ -26,7 +36,12 @@ class Header extends Component {
           <Navbar.Collapse>
             <Navbar.Form pullRight>
               <FormGroup>
-                <FormControl type="text" placeholder="Search" />
+                <FormControl
+                  type="text"
+                  placeholder={"Search"}
+                  value={this.state.location}
+                  onChange={this.changeLocation}
+                />
               </FormGroup>
               <Button onClick={this.fetchData} type="submit">Submit</Button>
             </Navbar.Form>
