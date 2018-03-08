@@ -9,13 +9,16 @@ import {
 } from "react-bootstrap";
 
 class Header extends Component {
-  state = {
-    location: ''
-  };
+  constructor() {
+    super();
+    this.state = {
+      location: ''
+    };
+  }
 
   fetchData = (e) => {
     e.preventDefault();
-    alert('search', this.state.location);
+    alert('your location is ' + document.getElementById('txt').value);
   };
 
   changeLocation = (e) => {
@@ -38,6 +41,7 @@ class Header extends Component {
               <FormGroup>
                 <FormControl
                   type="text"
+                  id='txt'
                   placeholder={"Search"}
                   value={this.state.location}
                   onChange={this.changeLocation}
